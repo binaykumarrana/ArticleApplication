@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ArticleApp</string>
+    <string name="ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id tortor efficitur, suscipit enim quis, dictum ipsum. Sed sit amet turpis eget urna sodales interdum. Mauris gravida erat ac risus vehicula, ac posuere eros vestibulum. Etiam scelerisque congue volutpat. Etiam a pretium sapien. Nulla facilisi. Pellentesque aliquam dolor at risus mollis, sed consequat nisl finibus. Donec mollis, urna ac egestas sodales, enim mauris accumsan risus, in mollis sapien magna quis diam. Suspendisse lacinia vehicula lacus eu porta. Nam mollis velit a rhoncus ornare. Nulla imperdiet sollicitudin dui, at gravida orci mattis id. Proin est neque, sodales vel tristique ac, interdum sit amet mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam erat volutpat. Praesent fringilla hendrerit semper.</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="error_msg">Too many request, please try later!</string>
+    <string name="ok">OK</string>
+    <string name="alert_msg">Do you want to discard the changes?</string>
+    <string name="save_alert_msg">Do you want to save changes?</string>
 </resources>
