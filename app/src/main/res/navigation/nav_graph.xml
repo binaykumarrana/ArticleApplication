@@ -6,16 +6,27 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.test.article.ui.fragment.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/home_fragment">
+        tools:layout="@layout/home_fragment"
+        android:name="com.test.article.ui.home.HomeFragment"
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_articleDetailsFragment"
             app:destination="@id/articleDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/articleDetailsFragment"
-        android:name="com.test.article.ui.fragment.ArticleDetailsFragment"
-        android:label="ArticleDetailsFragment"
-        tools:layout="@layout/article_details_fragment" />
+        tools:layout="@layout/article_details_fragment"
+        android:name="com.test.article.ui.details.ArticleDetailsFragment"
+        android:label="ArticleDetailsFragment">
+        <argument
+            android:name="articleId"
+            app:argType="string" />
+        <argument
+            android:name="articleTitle"
+            app:argType="string" />
+        <argument
+            android:name="avatar"
+            app:argType="string" />
+    </fragment>
+
 </navigation>
