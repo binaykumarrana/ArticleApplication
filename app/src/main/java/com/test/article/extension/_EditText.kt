@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.test.article.R
 
+//Extension function to use EditText as read only
 fun AppCompatEditText.displayMode() {
     apply {
         isEnabled = false
@@ -18,6 +19,7 @@ fun AppCompatEditText.displayMode() {
     }
 }
 
+//Extension function to use EditText as normal
 fun AppCompatEditText.editMode() {
     apply {
         isEnabled = true
