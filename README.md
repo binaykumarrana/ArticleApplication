@@ -11,6 +11,7 @@ Room,
 Paging,
 MVVM,
 MockWebServer,
-Junit
+Junit,
+Rx for Dao testing
 
 
