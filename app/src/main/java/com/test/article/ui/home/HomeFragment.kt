@@ -1,7 +1,6 @@
 package com.test.article.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +31,7 @@ class HomeFragment : Fragment(), ItemCallback {
         articleAdapter = ArticleAdapter(this)
         setupRecyclerView()
         progress_circular.bringToFront()
-        model.fetchArticles()
+        model.loadArticlesPersistence()
         observeViewModelData()
         checkNetworkStatus()
     }
@@ -45,16 +44,18 @@ class HomeFragment : Fragment(), ItemCallback {
     }
 
     private fun observeViewModelData() {
+        //Observe local data if not found then call remote
+        model.localArticles.observe(viewLifecycleOwner, Observer {
+            if (it.isNullOrEmpty()) {
+                model.fetchArticles()
+            } else {
+                articleAdapter.submitList(it)
+            }
+        })
         model.articles.observe(
             viewLifecycleOwner,
             Observer {
-                Log.d("ATGA","${model.localArticles.value}")
-                if (model.localArticles.value.isNullOrEmpty()){
-                    model.saveArticles(it)
-                    articleAdapter.submitList(it)
-                }else{
-                    articleAdapter.submitList(it)
-                }
+                articleAdapter.submitList(it)
             })
     }
 

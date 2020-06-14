@@ -35,7 +35,7 @@ class ArticleViewHolder(parent: View) : RecyclerView.ViewHolder(parent) {
         article: ArticleDB
     ) {
         itemView.setOnClickListener {
-            listener.onArticleClicked(article.articleId,article.title,article.avatarUrl)
+            listener.onArticleClicked(article.articleId, article.title, article.avatarUrl)
         }
     }
 }
