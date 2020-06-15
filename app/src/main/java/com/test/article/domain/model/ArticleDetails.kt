@@ -1,3 +1,10 @@
 package com.test.article.domain.model
 
-data class ArticleDetails(val id: Int,val text: String)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "ArticleDetails")
+data class ArticleDetails(
+    @PrimaryKey val id: Int,
+    var text: String
+)

@@ -8,14 +8,16 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.test.article.constants.Constants.DB_NAME
 import com.test.article.constants.Constants.DB_VERSION
+import com.test.article.domain.model.ArticleDetails
 
 @Database(
-    entities = [ArticleDB::class],
+    entities = [ArticleDB::class, ArticleDetails::class],
     version = DB_VERSION,
     exportSchema = false
 )
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getArticleDao(): ArticleDao
+    abstract fun getArticleDetailsDao(): ArticleDetailsDao
 
     companion object {
         @Volatile

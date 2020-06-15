@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -18,6 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : Fragment(), ItemCallback {
     private lateinit var articleAdapter: ArticleAdapter
     private val model by viewModel<ArticleViewModel>()
+    private var isRemote: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,8 +48,10 @@ class HomeFragment : Fragment(), ItemCallback {
         //Observe local data if not found then call remote
         model.localArticles.observe(viewLifecycleOwner, Observer {
             if (it.isNullOrEmpty()) {
+                isRemote = true
                 model.fetchArticles()
             } else {
+                isRemote = false
                 articleAdapter.submitList(it)
             }
         })
@@ -73,7 +75,8 @@ class HomeFragment : Fragment(), ItemCallback {
                     }
                     NetworkState.ERROR -> {
                         progress_circular.visibility = View.GONE
-                        showErrorDialog(requireContext())
+                        if (isRemote)
+                            showErrorDialog(requireContext())
                     }
                 }
             }
